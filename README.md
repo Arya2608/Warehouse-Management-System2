@@ -1,12 +1,95 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem API Manajemen Inventaris Gudang
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+##### Proyek ini untuk memenuhi tugas Ujian Akhir Semester Mata Kuliah Web Services
 
+Anggota Kelompok :
+
+> 22003030017 - Arya Hidayat Pratama
+
+> 2203030011 - Almer Ibra Maulana
+
+> 2203030005 - Yoga Dui Azhari
+
+## Deskripsi Singkat  
+Sistem API untuk manajemen inventaris gudang berbasis Laravel dengan autentikasi JWT. Sistem ini memungkinkan pengguna untuk mengelola produk, kategori, gudang, stok, serta melakukan pencatatan perpindahan barang antar gudang.
+
+---
+
+## Cara Menjalankan Sistem
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/username/repo-inventaris.git
+cd repo-inventaris
+```
+### 2. Install Dependencies (Composer)
+```bash
+composer install
+composer require tymon/jwt-auth
+```
+### 3. Setup JWT Authentication
+```bash
+php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+php artisan jwt:secret
+```
+### 4. Konfigurasi .env
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+### Sesuaikan konfigurasi database di file .env:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=wms
+DB_USERNAME=root
+DB_PASSWORD=
+```
+### 5. Setup Database
+```bash
+php artisan migrate
+php artisan db:seed
+```
+### 6. Jalankan Server
+```bash
+php artisan serve
+```
+### Server akan berjalan di:
+http://localhost:8000
+---
+
+### Akun Uji Coba
+- **Email**: admin@example.com
+- **Password**: password
+
+### API Endpoint
+Base URL: http://localhost:8000/api
+
+### 🔐 Autentikasi
+- POST /login - Login pengguna (mendapatkan token)
+- POST /register - Registrasi pengguna baru
+- POST /logout - Logout
+
+### 👤 User
+- GET /users - Melihat daftar user (admin)
+- POST /users - Tambah user baru
+
+### 📦 Produk & Kategori
+- GET /products - Lihat semua produk
+- POST /products - Tambah produk baru
+- GET /categories - Lihat semua kategori
+- POST /categories - Tambah kategori baru
+
+### 🏬 Gudang
+- GET /warehouses - Lihat daftar gudang
+- POST /warehouses - Tambah gudang baru
+### 📊 Inventaris
+- GET /inventories - Lihat stok produk di gudang
+
+### 🔁 Pergerakan Stok
+- GET /stock-movements - Lihat histori pergerakan stok
+- POST /stock-movements - Tambah pergerakan stok (in, out, transfer)
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
