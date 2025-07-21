@@ -90,6 +90,9 @@ Base URL: http://localhost:8000/api
 ### 🔁 Pergerakan Stok
 - GET /stock-movements - Lihat histori pergerakan stok
 - POST /stock-movements - Tambah pergerakan stok (in, out, transfer)
+
+### Test PostMan
+https://.postman.co/workspace/My-Workspace~4fe8a00e-2885-443d-84b8-0aab30f3b14d/request/41485287-d852560a-deec-404d-84bf-b51ffc5745a2?action=share&creator=41485287&ctx=documentation
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
